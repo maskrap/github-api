@@ -5,7 +5,7 @@ function GitHub(){
 }
 
 GitHub.prototype.getRepos = function(avatar_url, userName, following, followers, public_repos){
-  $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){
+  $.get('https://api.github.com/users/' + userName + '/repos?access_token=' + apiKey).then(function(response){
     $('#user-image').empty();
     $('#user-image').append('<img src=' + response.avatar_url + '>');
     $('#user-login').empty();
