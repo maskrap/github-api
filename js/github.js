@@ -1,15 +1,15 @@
 var apiKey = require('./../.env').apiKey;
 
-function GitHub(){
-
+function GitHub(userName){
+   this.userName = userName;
 }
 
-GitHub.prototype.getRepos = function(avatar_url, userName, following, followers, public_repos){
-  $.get('https://api.github.com/users/' + userName + '/repos?access_token=' + apiKey).then(function(response){
+GitHub.prototype.getRepos = function(userName){
+  $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){
     $('#user-image').empty();
     $('#user-image').append('<img src=' + response.avatar_url + '>');
     $('#user-login').empty();
-    $('#user-login').append('<h2>Username: ' + '<em>' + response.login + '</em>' + '</h2>');
+    $('#user-login').append('<h2>User: ' + '<strong>' + response.login + '</strong>' + '</h2>');
     $('#user-location').empty();
     $('#user-location').append('<h4>Location: ' + response.location + '</h4>');
     $('#user-following').empty();
@@ -18,13 +18,17 @@ GitHub.prototype.getRepos = function(avatar_url, userName, following, followers,
     $('#user-followers').append('<h4>Followers: ' + response.followers + '</h4>');
     $('#user-repos').empty();
     $('#user-repos').append('<h3>Number of Repos: ' + response.public_repos + '</h3>');
+    $('#user-hire').empty();
+    $('#user-hire').append('<h4>Is this person looking for a job? : ' + response.hireable + '</h4>');
 
+    $.get('https://api.github.com/users/' + userName + '/repos?access_token=' + apiKey).then(function(response){
     $('#repo-list').empty();
-    for(var i = 0; i < response.length; i++){
+    for(var i = 0; i < response.length; i++) {
       $('#repo-list').append('<h3>Repository name: </h3>' + '<h4>' + response[i].name + '</h4>' + '<br>'+ '<h5>' + response[i].description + '</h5>');
     }
-
+    });
     console.log(response);
+    console.log(response.length);
   }).fail(function(error){
     console.log(error.responseJSON.message);
   });
