@@ -1,7 +1,5 @@
-## ATOM CUSTOMIZATION
-* Theme: Seti-UI
-* Packages: linter-jshint
-
+HEY DUMMY LOOK HERE FOR PULL REQUESTS
+https://developer.github.com/v3/pulls/
 
 ## ENVIRONMENT SETUP
 ```
