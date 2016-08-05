@@ -21,14 +21,12 @@ GitHub.prototype.getRepos = function(userName){
     $('#user-hire').empty();
     $('#user-hire').append('<h4>Is this person looking for a job? : ' + response.hireable + '</h4>');
 
-    $.get('https://api.github.com/users/' + userName + '/repos?access_token=' + apiKey).then(function(response){
+    $.get('https://api.github.com/users/' + userName + '/repos?&per_page=100&access_token=' + apiKey).then(function(response){
     $('#repo-list').empty();
     for(var i = 0; i < response.length; i++) {
       $('#repo-list').append('<h3>Repository name: </h3>' + '<h4>' + response[i].name + '</h4>' + '<br>'+ '<h5>' + response[i].description + '</h5>');
     }
     });
-    console.log(response);
-    console.log(response.length);
   }).fail(function(error){
     console.log(error.responseJSON.message);
   });

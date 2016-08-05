@@ -1,6 +1,11 @@
+
 $gray : #d3d3d3;
 $green : #75B975;
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 23px;
+}
 .box {
   background: $gray;
   border: 3px solid black;
