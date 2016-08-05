@@ -4,23 +4,36 @@
     <link rel="stylesheet" href="build/css/vendor.css">
     <script src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
+    <link rel="stylesheet" href="build/css/styles.css">
     <title></title>
   </head>
   <body>
     <div class="container">
-      <div id="clock" class="jumbotron">
-        <h3>Current Time:</h3>
-        <h3 id="time"></h3>
+      <div>
+        <h3>Enter a GH username:</h3>
+        <form id="github-form">
+          <input id="user-input" type="text" name="name">
+          <button type="submit" class="button btn btn-info" name="button">Search</button>
+        </form>
       </div>
-      <h3>Set an alarm:</h3>
-      <form id="alarm-form">
-        <input id="alarm-input" type="time" name="alarm">
-        <button type="submit" name="button">Alarm</button>
-      </form>
-      <audio id="alarm-wav" src="audio/foghorn.wav" preload="auto"></audio>
-      <hr>
-      <h3>Weather API</h3>
-      <a href="weather.html">Click for the weather...</a>
+
+      <div id="user-image">
+      </div>
+
+      <div id="user-name">
+      </div>
+
+      <div id="user-followers">
+      </div>
+
+      <div id="repo-names">
+      </div>
+
+      <div id="repo-descriptions">
+      </div>
+      <!-- <h3>Weather API</h3>
+      <a href="weather.html">Click for the weather...</a> -->
     </div>
+
   </body>
 </html>

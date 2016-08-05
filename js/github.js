@@ -7,7 +7,6 @@ Constructor.prototype.templateName = function(methodParameter) {
   // method code
 };
 
-exports.constructorModule = Constructor;
 
 
 var apiKey = require('./../.env').apiKey;
@@ -19,3 +18,5 @@ exports.getRepos = function(){
     console.log(error.responseJSON.message);
   });
 };
+
+exports.githubModule = GitHub;
